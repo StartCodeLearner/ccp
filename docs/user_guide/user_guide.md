@@ -7,5 +7,6 @@ engauge
 polytropic_methods
 factory_test
 evaluation_tutorial
+multistage_design
 ../app_guide/straight_through_user_guide
 ```
