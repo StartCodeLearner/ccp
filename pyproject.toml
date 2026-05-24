@@ -49,6 +49,7 @@ Documentation = "https://ccp-centrifugal-compressor-performance.readthedocs.io/e
 "Source Code" = "https://github.com/petrobras/ccp"
 
 [project.scripts]
+ccp = "ccp.cli:main"
 ccp-app = "ccp.app.cli:main"
 
 [project.optional-dependencies]
