@@ -20,6 +20,11 @@ API Reference
 
     Impeller
 
+.. autosummary::
+    :toctree: generated/multistagecompressor
+
+    MultiStageCompressor
+
 .. toctree::
 
     plot_methods

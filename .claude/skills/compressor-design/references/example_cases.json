@@ -1,0 +1,67 @@
+{
+  "cases": [
+    {
+      "name": "co2_1_near_critical",
+      "fluid": {"co2": 1.0},
+      "flow_m": {"value": 115.5, "units": "kg/s"},
+      "speed": {"value": 32000, "units": "RPM"},
+      "suction": {"p": {"value": 7.4, "units": "MPa"}, "T": {"value": 31.1, "units": "degC"}},
+      "pressure_ratio": 3.48,
+      "n_stages": 1
+    },
+    {
+      "name": "co2_2",
+      "fluid": {"co2": 1.0},
+      "flow_m": {"value": 3.53, "units": "kg/s"},
+      "speed": {"value": 75000, "units": "RPM"},
+      "suction": {"p": {"value": 7.687, "units": "MPa"}, "T": {"value": 32.15, "units": "degC"}},
+      "pressure_ratio": 1.8213,
+      "n_stages": 1
+    },
+    {
+      "name": "co2_3",
+      "fluid": {"co2": 1.0},
+      "flow_m": {"value": 15.8, "units": "kg/s"},
+      "speed": {"value": 27400, "units": "RPM"},
+      "suction": {"p": {"value": 7.6, "units": "MPa"}, "T": {"value": 37, "units": "degC"}},
+      "pressure_ratio": 1.5,
+      "n_stages": 1
+    },
+    {
+      "name": "argon_4stage",
+      "fluid": {"Argon": 1.0},
+      "flow_m": {"value": 17, "units": "kg/s"},
+      "speed": {"value": 12000, "units": "RPM"},
+      "suction": {"p": {"value": 1.5, "units": "MPa"}, "T": {"value": 320, "units": "degC"}},
+      "pressure_ratio": 2,
+      "n_stages": 4
+    },
+    {
+      "name": "air_8stage",
+      "fluid": {"air": 1.0},
+      "flow_m": {"value": 250, "units": "kg/s"},
+      "speed": {"value": 6500, "units": "RPM"},
+      "suction": {"p": {"value": 3, "units": "MPa"}, "T": {"value": 320, "units": "degC"}},
+      "pressure_ratio": 5,
+      "n_stages": 8
+    },
+    {
+      "name": "water_2stage",
+      "fluid": {"water": 1.0},
+      "flow_m": {"value": 0.94, "units": "kg/s"},
+      "speed": {"value": 23000, "units": "RPM"},
+      "suction": {"p": {"value": 0.054, "units": "MPa"}, "T": {"value": 87, "units": "degC"}},
+      "pressure_ratio": 2,
+      "n_stages": 2
+    },
+    {
+      "name": "water_4stage",
+      "fluid": {"water": 1.0},
+      "flow_m": {"value": 2.8, "units": "kg/s"},
+      "speed": {"value": 34500, "units": "RPM"},
+      "suction": {"p": {"value": 0.1, "units": "MPa"}, "T": {"value": 100, "units": "degC"}},
+      "pressure_ratio": 10,
+      "n_stages": 4
+    }
+  ]
+}

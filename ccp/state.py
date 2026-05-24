@@ -153,9 +153,7 @@ class State(CP.AbstractState):
                 from collections import Counter
 
                 dupes = [
-                    name
-                    for name, count in Counter(constituents).items()
-                    if count > 1
+                    name for name, count in Counter(constituents).items() if count > 1
                 ]
                 raise ValueError(
                     f"Repeated components in the fluid dictionary: {dupes}. "
@@ -901,6 +899,56 @@ class State(CP.AbstractState):
         # go back to initialization phase after calculation
         if self.phase:
             self.specify_phase(self._phase_dict[self.phase])
+
+    def to_dict(self):
+        """Serialize the state to a JSON-friendly dictionary.
+
+        Returns
+        -------
+        dict
+            Dictionary with ``p`` and ``T`` as ``{"value", "units"}`` pairs
+            (SI units) and the ``fluid`` composition.
+
+        Examples
+        --------
+        >>> import ccp
+        >>> s = ccp.State(p=ccp.Q_(1, "MPa"), T=ccp.Q_(300, "K"), fluid={"co2": 1})
+        >>> ccp.State.from_dict(s.to_dict()) == s
+        True
+        """
+        return {
+            "p": {"value": self.p("Pa").m, "units": "Pa"},
+            "T": {"value": self.T("K").m, "units": "K"},
+            "fluid": dict(self.fluid),
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        """Build a state from a dictionary produced by :meth:`to_dict`.
+
+        Each of ``p`` and ``T`` may be given as a plain number (SI units
+        assumed) or as a ``{"value", "units"}`` pair.
+
+        Parameters
+        ----------
+        data : dict
+            Dictionary with keys ``p``, ``T`` and ``fluid``.
+
+        Returns
+        -------
+        ccp.State
+        """
+
+        def _q(value, default_units):
+            if isinstance(value, dict):
+                return Q_(value["value"], value["units"])
+            return Q_(value, default_units)
+
+        return cls(
+            p=_q(data["p"], "Pa"),
+            T=_q(data["T"], "K"),
+            fluid=data["fluid"],
+        )
 
     def get_coolprop_state(self):
         """Return a CoolProp state object."""

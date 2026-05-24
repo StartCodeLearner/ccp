@@ -177,6 +177,7 @@ from .impeller import Impeller, impeller_example
 from .fo import FlowOrifice
 from .similarity import check_similarity
 from .evaluation import Evaluation
+from .compressor_design import MultiStageCompressor
 
 __all__ = [
     "State",
@@ -188,4 +189,5 @@ __all__ = [
     "check_similarity",
     "impeller_example",
     "Evaluation",
+    "MultiStageCompressor",
 ]
